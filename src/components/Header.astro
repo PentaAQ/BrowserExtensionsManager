@@ -1,0 +1,28 @@
+---
+import Logo from "../assets/logo.svg";
+import Sun from "../assets/icon-sun.svg";
+import Moon from "../assets/icon-moon.svg";
+---
+
+<div
+  class="dark:bg-cyan-900 bg-white shadow-2xl max-w-6xl w-full mx-auto my-10 border  rounded-2xl px-3 py-2 flex justify-between items-center"
+>
+  <Logo class="dark:invert" />
+  <button id="btnLigth" class="dark:hidden block cursor-pointer"
+    ><Sun class={"invert"} /></button
+  >
+  <button id="btnMoon" class="dark:block hidden cursor-pointer invert"
+    ><Moon /></button
+  >
+</div>
+
+<script>
+  const btnLight = document.getElementById("btnLigth");
+  const btnMoon = document.getElementById("btnMoon");
+  btnLight?.addEventListener("click", () => {
+    document.body.classList.add("dark");
+  });
+  btnMoon?.addEventListener("click", () => {
+    document.body.classList.remove("dark");
+  });
+</script>
