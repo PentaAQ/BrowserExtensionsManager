@@ -10,7 +10,7 @@ export const CardList = () => {
   const datofiltrado = data.filter((item) => {
     if (filtrar === "active") return item.isActive === true;
     if (filtrar === "inactive") return item.isActive === false;
-    return true; // 'all'
+    return true;
   });
 
   return (
@@ -20,42 +20,51 @@ export const CardList = () => {
         <div className="flex gap-5">
           <button
             onClick={() => setFiltrar("all")}
-            className={`px-3 py-1 rounded ${
-              filtrar === "all" ? "bg-blue-200" : "bg-red-500"
+            className={`px-4 py-1 rounded-3xl border cursor-pointer border-gray-600 ${
+              filtrar === "all"
+                ? "bg-orange-800 text-white"
+                : "bg-white dark:bg-neutral-800"
             }`}
           >
             All
           </button>
           <button
             onClick={() => setFiltrar("active")}
-            className={`px-3 py-1 rounded ${
-              filtrar === "active" ? "bg-blue-200" : "bg-red-500"
+            className={`px-4 py-1 rounded-3xl border cursor-pointer border-gray-600 ${
+              filtrar === "active"
+                ? "bg-orange-800 text-white"
+                : "bg-white dark:bg-neutral-800"
             }`}
           >
             Active
           </button>
           <button
             onClick={() => setFiltrar("inactive")}
-            className={`px-3 py-1 rounded ${
-              filtrar === "inactive" ? "bg-blue-200" : "bg-red-500"
+            className={`px-4 py-1 rounded-3xl border cursor-pointer border-gray-600 ${
+              filtrar === "inactive"
+                ? "bg-orange-800 text-white"
+                : "bg-white dark:bg-neutral-800"
             }`}
           >
             Inactive
           </button>
         </div>
       </div>
-      <div className=" flex flex-wrap gap-5 justify-center">
+      <div className="flex flex-wrap gap-5">
         {datofiltrado?.map((item) => (
-          <div key={item.name} className="border-2 w-xs p-3 flex flex-col gap-5 rounded-xl">
+          <div
+            key={item.name}
+            className="shadow-xl dark:shadow-none bg-white border-gray-600 w-xs p-3 flex flex-col gap-5 rounded-xl dark:bg-[#212636ff]"
+          >
             <div className="flex  items-center gap-2">
-              <img src={item.logo} alt="" />
+              <img src={item.logo} alt={item.name} />
               <div>
                 <h1 className="text-lg font-medium">{item.name}</h1>
                 <p className="text-xs">{item.description}</p>
               </div>
             </div>
             <div className="flex justify-between items-center mt-auto">
-              <button className="border rounded-xl px-2 py-1 cursor-pointer">
+              <button className="border rounded-xl px-2 py-1 cursor-pointer hover:bg-orange-800 text-xs transition-all duration-200 hover:border-orange-800 hover:text-white">
                 Remove
               </button>
               <Switch active={item.isActive} />

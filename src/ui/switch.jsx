@@ -2,7 +2,7 @@ export const Switch = ({ active }) => {
   return (
     <div
       className={`${
-        active ? "bg-orange-500" : "bg-gray-600"
+        active ? "bg-orange-800" : "bg-gray-600"
       } rounded-2xl w-10 h-fit p-1 cursor-pointer`}
     >
       <div

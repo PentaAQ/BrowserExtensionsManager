@@ -5,24 +5,39 @@ import Moon from "../assets/icon-moon.svg";
 ---
 
 <div
-  class="dark:bg-cyan-900 bg-white shadow-2xl max-w-6xl w-full mx-auto my-10 border  rounded-2xl px-3 py-2 flex justify-between items-center"
+  class="dark:bg-[#212636ff] bg-white shadow-2xl max-w-5xl w-full mx-auto mb-10  rounded-2xl px-3 py-2 flex justify-between items-center"
 >
-  <Logo class="dark:invert" />
-  <button id="btnLigth" class="dark:hidden block cursor-pointer"
-    ><Sun class={"invert"} /></button
-  >
-  <button id="btnMoon" class="dark:block hidden cursor-pointer invert"
-    ><Moon /></button
-  >
+  <div class="flex gap-2 items-center">
+    <svg class="max-h-10 max-w-10">
+      <path
+        fill="#C7231A"
+        fill-rule="evenodd"
+        d="M13.715.516c-2.257 0-4.42.896-6.016 2.492L0 10.707v3.524c0 2.49 1.07 4.73 2.774 6.285A8.485 8.485 0 0 0 0 26.802v3.524l7.699 7.698A8.507 8.507 0 0 0 20 37.742a8.508 8.508 0 0 0 12.301.282L40 30.326v-3.524c0-2.49-1.07-4.73-2.774-6.286A8.485 8.485 0 0 0 40 14.231v-3.524l-7.699-7.7A8.508 8.508 0 0 0 20 3.29 8.485 8.485 0 0 0 13.715.516Zm12.044 20a8.528 8.528 0 0 1-.282-.27L20 14.77l-5.477 5.477a8.528 8.528 0 0 1-.282.27c.096.087.19.177.282.269L20 26.262l5.477-5.476c.092-.093.186-.182.282-.27Zm-3.537 9.81v1.682a4.063 4.063 0 0 0 6.936 2.874l6.398-6.397v-1.683a4.063 4.063 0 0 0-6.937-2.874l-6.397 6.398Zm-4.444 0-6.397-6.398a4.063 4.063 0 0 0-6.937 2.873v1.684l6.397 6.397a4.063 4.063 0 0 0 6.937-2.873v-1.683Zm0-21.302v1.683l-6.397 6.397a4.063 4.063 0 0 1-6.937-2.873v-1.683l6.397-6.397a4.063 4.063 0 0 1 6.937 2.873Zm10.841 8.08-6.397-6.397V9.024a4.063 4.063 0 0 1 6.936-2.873l6.398 6.397v1.683a4.063 4.063 0 0 1-6.937 2.873Z"
+        clip-rule="evenodd"></path>
+    </svg>
+    <h1 class="dark:text-white font-bold text-2xl">Extensions</h1>
+  </div>
+  <div>
+    <button
+      id="btnLigth"
+      class="dark:block hidden cursor-pointer bg-[#2f364bff] p-2 rounded-md"
+      ><Sun class={'scale-60'}/></button
+    >
+    <button
+      id="btnMoon"
+      class="dark:hidden block cursor-pointer bg-[#c2c3c5] p-1 rounded-md"
+      ><Moon class={'scale-60'}/></button
+    >
+  </div>
 </div>
 
 <script>
   const btnLight = document.getElementById("btnLigth");
   const btnMoon = document.getElementById("btnMoon");
   btnLight?.addEventListener("click", () => {
-    document.body.classList.add("dark");
+    document.body.classList.remove("dark");
   });
   btnMoon?.addEventListener("click", () => {
-    document.body.classList.remove("dark");
+    document.body.classList.add("dark");
   });
 </script>
